@@ -1,9 +1,6 @@
 import React from "react";
+import { AppRouter } from "./routers/RouterApp";
 
 export const TOBSApp = () => {
-  return (
-    <div>
-      <h1>Primeros pasos en la App</h1>
-    </div>
-  );
+  return <AppRouter />;
 };
