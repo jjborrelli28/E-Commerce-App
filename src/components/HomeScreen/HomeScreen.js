@@ -2,7 +2,7 @@ import React from "react";
 import { useFetch } from "../../hooks/useFetch";
 
 export const HomeScreen = () => {
-  const url = `https://fravega.myvtex.com/api/catalog_system/pub/products/search/notebook`;
+  const url = `/api/catalog_system/pub/products/search/notebook`;
 
   const { data, loading, error } = useFetch(url);
 
