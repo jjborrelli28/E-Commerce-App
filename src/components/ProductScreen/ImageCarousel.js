@@ -3,7 +3,7 @@ import Carousel from "react-bootstrap/Carousel";
 
 export const ImageCarousel = ({ images }) => {
   return (
-    <Carousel variant="dark">
+    <Carousel variant="dark" className="mb-3 carousel">
       {images.map((image) => (
         <Carousel.Item key={image.imageId}>
           <img
