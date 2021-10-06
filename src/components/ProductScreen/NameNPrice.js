@@ -1,8 +1,10 @@
 import React from "react";
 
 export const NameNPrice = ({ data }) => {
+  console.log(data);
   return (
     <>
+      <h5 className="product-name">{data[0].brand}</h5>
       <h5 className="product-name">{data[0].items[0].nameComplete}</h5>
       {data[0].items[0].sellers[0].commertialOffer.ListPrice !==
         data[0].items[0].sellers[0].commertialOffer.Price && (

@@ -8,3 +8,19 @@
   color: #28a745;
   font-weight: 500;
 }
+
+@media screen and (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .paymentMethod {
+    max-width: 47px;
+  }
+
+  td {
+    font-size: 15px;
+  }
+}

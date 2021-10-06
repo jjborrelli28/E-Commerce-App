@@ -7,7 +7,6 @@
 
 header {
   display: flex;
-  flex: 0 1 50%;
   justify-content: center;
 }
 
@@ -16,6 +15,7 @@ header {
 }
 
 .main-data {
+  width: 436px;
   padding: 1rem;
   border: 1px solid rgb(218, 218, 218);
   display: flex;
@@ -36,8 +36,30 @@ header {
   font-weight: bold;
 }
 
+.btn-buy {
+  width: 100%;
+}
+
 .description {
   h3 {
-    font-size: 18px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .container-product-screen {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-data {
+    width: 100%;
   }
 }
