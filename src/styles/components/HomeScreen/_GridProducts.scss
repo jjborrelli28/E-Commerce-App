@@ -6,11 +6,12 @@
 .card:hover {
   box-shadow: rgb(0 0 0 / 16%) 0px 2px 8px 2px;
   transform: scale(1.02);
+  cursor: pointer;
 }
 
 .discount-container {
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 18px;
 }
 
 .discount-number {
@@ -18,16 +19,15 @@
 }
 
 .discount-percentage {
-  font-size: 1rem;
-  background-color: #dc3545;
+  background-color: #28a745;
   color: white;
   padding: 0px 4px 1px 4px;
   border-radius: 3px;
   margin-left: 0.5rem;
-  font-weight: 500;
 }
 
 .price {
+  font-size: 22px !important;
   text-align: center;
   font-weight: bold !important;
 }

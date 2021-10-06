@@ -2,18 +2,21 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useHistory } from "react-router";
 
 export const GridProducts = ({ data }) => {
-  const handleSelectProduct = (e) => {
-    console.log(e);
+  let history = useHistory();
+
+  const handleSelectProduct = (productId) => {
+    history.push(`/${productId}`);
   };
 
   return (
     <Row xs={1} md={5} className="g-4">
-      {data?.map((product) => (
+      {data.map((product) => (
         <Col key={product.productId}>
           <Card
-            onClick={( ) => {
+            onClick={() => {
               handleSelectProduct(product.productId);
             }}
           >
