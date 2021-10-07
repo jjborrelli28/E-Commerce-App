@@ -19,11 +19,17 @@ export const useSearch = () => {
   const handleInputSearch = (e) => {
     e.preventDefault();
 
-    const action = {
+    const actionSearch = {
       type: types.SEARCH,
       payload: value.toLocaleLowerCase(),
     };
-    dispatch(action);
+    dispatch(actionSearch);
+
+    const actionPagination = {
+      type: types.PAGINATION,
+      payload: 1,
+    };
+    dispatch(actionPagination);
 
     if (history.location.pathname !== "/") {
       const action = {

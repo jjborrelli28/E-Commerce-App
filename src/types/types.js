@@ -8,4 +8,6 @@ export const types = {
   MAYOR_PRECIO: "Mayor precio",
 
   MAYOR_DESCUENTO: "Mayor descuento",
+
+  PAGINATION: "PAGINATION",
 };
