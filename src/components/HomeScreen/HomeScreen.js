@@ -11,6 +11,7 @@ import { orders } from "../../helpers/orders";
 
 import Alert from "react-bootstrap/Alert";
 import { PaginationBasic } from "./PaginationBasic";
+import { types } from "../../types/types";
 
 export const HomeScreen = () => {
   const { valueSearch } = useSelector((state) => state.search);
@@ -26,12 +27,19 @@ export const HomeScreen = () => {
   const dispatch = useDispatch();
 
   const handleOrderBySelect = (e) => {
-    const action = {
+    const actionOrder = {
       type: e.target.textContent,
       payload: e.target.textContent,
     };
 
-    dispatch(action);
+    dispatch(actionOrder);
+
+    const actionPagination = {
+      type: types.PAGINATION,
+      payload: 1,
+    };
+
+    dispatch(actionPagination);
   };
 
   const allPages =

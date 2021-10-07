@@ -19,7 +19,7 @@ export const PaginationBasic = ({ pages }) => {
     );
   }
 
-  const handlePrevius = () => {
+  const handlePrevious = () => {
     if (page !== 1) {
       const action = {
         type: types.PAGINATION,
@@ -65,7 +65,7 @@ export const PaginationBasic = ({ pages }) => {
     if (page !== parseInt(e.target.textContent)) {
       const action = {
         type: types.PAGINATION,
-        payload: e.target.textContent,
+        payload: parseInt(e.target.textContent),
       };
 
       dispatch(action);
@@ -74,29 +74,26 @@ export const PaginationBasic = ({ pages }) => {
 
   return (
     <Pagination className="d-flex justify-content-center">
-      <Pagination.First disabled={page === 1 && true} onClick={handleFirst} />
-      <Pagination.Prev disabled={page === 1 && true} onClick={handlePrevius} />
-      <Pagination.Item active={page === 1 && true} onClick={handlePageSelect}>
+      <Pagination.First disabled={page === 1} onClick={handleFirst} />
+      <Pagination.Prev disabled={page === 1} onClick={handlePrevious} />
+      <Pagination.Item active={page === 1} onClick={handlePageSelect}>
         {page === 1 ? page : 1}
       </Pagination.Item>
-      <Pagination.Ellipsis disabled={page === 1 && true} />
+      <Pagination.Ellipsis disabled={page === 1} />
 
       <Pagination.Item
         active={page !== 1 && page !== pages && true}
         onClick={handlePageSelect}
       >
-        {page === 1 ? page + 1 : page === pages ? pages - 1 : page}
+        {page === 1 ? 2 : page === pages ? pages - 1 : page}
       </Pagination.Item>
 
-      <Pagination.Ellipsis disabled={page === pages && true} />
-      <Pagination.Item
-        active={page === pages && true}
-        onClick={handlePageSelect}
-      >
+      <Pagination.Ellipsis disabled={page === pages} />
+      <Pagination.Item active={page === pages} onClick={handlePageSelect}>
         {page === pages ? page : pages}
       </Pagination.Item>
-      <Pagination.Next disabled={page === pages && true} onClick={handleNext} />
-      <Pagination.Last disabled={page === pages && true} onClick={handleLast} />
+      <Pagination.Next disabled={page === pages} onClick={handleNext} />
+      <Pagination.Last disabled={page === pages} onClick={handleLast} />
     </Pagination>
   );
 };
