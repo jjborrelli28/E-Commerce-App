@@ -2,14 +2,16 @@ import React from "react";
 import Table from "react-bootstrap/Table";
 import Accordion from "react-bootstrap/Accordion";
 
-export const TechnicalSpecifications = ({ data }) => {
+export const TechnicalSpecifications = ({ specifications }) => {
+  const allSpecificationsGroups = specifications[0].allSpecificationsGroups;
+
   return (
     <>
-      {data[0].allSpecificationsGroups && (
+      {allSpecificationsGroups && (
         <div>
           <h5>Especificaciones técnicas:</h5>
           <Accordion defaultActiveKey="0" className="mb-3">
-            {data[0].allSpecificationsGroups.map(
+            {allSpecificationsGroups.map(
               (specification) =>
                 specification !== "Filtros" && (
                   <Accordion.Item key={specification} eventKey={specification}>
@@ -19,14 +21,20 @@ export const TechnicalSpecifications = ({ data }) => {
                         <tbody>
                           <tr>
                             <td>
-                              {data[0][specification].map((item, i) => (
-                                <p key={item + i}>{item}</p>
-                              ))}
+                              {specifications[0][specification].map(
+                                (specification) => (
+                                  <p key={specification}>{specification}</p>
+                                )
+                              )}
                             </td>
                             <td>
-                              {data[0][specification].map((item, i) => (
-                                <p key={item + i}>{data[0][item]}</p>
-                              ))}
+                              {specifications[0][specification].map(
+                                (specification) => (
+                                  <p key={specification}>
+                                    {specifications[0][specification]}
+                                  </p>
+                                )
+                              )}
                             </td>
                           </tr>
                         </tbody>

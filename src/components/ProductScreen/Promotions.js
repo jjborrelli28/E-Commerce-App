@@ -1,39 +1,45 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 import { cardImages } from "../../helpers/cardImages";
-import { PaymentMethod } from "./PaymentMethod";
+import { AllPaymentMethods } from "./AllPaymentMethods";
 
-export const Promotions = ({ data }) => {
+export const Promotions = ({ promotions }) => {
+  const installments =
+    promotions[0].items[0].sellers[0].commertialOffer.Installments;
+
   return (
     <Table striped bordered hover className="table-promotions">
       <tbody>
-        {data[0].items[0].sellers[0].commertialOffer.Installments.filter(
-          (promo) =>
-            (promo.InterestRate === 0 && promo.NumberOfInstallments !== 1) ||
-            promo.PaymentSystemName === "Mercado Pago"
-        ).map(
-          (data, i) =>
-            i < 5 && (
-              <tr key={data.PaymentSystemName + i}>
-                <td>
-                  <img
-                    src={cardImages[data.PaymentSystemName]}
-                    alt={data.PaymentSystemName}
-                    className="paymentMethod"
-                  />
-                  {data.NumberOfInstallments}{" "}
-                  {data.NumberOfInstallments > 1 ? "cuotas" : "cuota"}{" "}
-                  <span className="promotion">
-                    {data.InterestRate === 0 ? "sin interés" : "fijas"} de ${" "}
-                    {data.Value}
-                  </span>
-                </td>
-              </tr>
-            )
-        )}
+        {installments
+          .filter(
+            (promotion) =>
+              (promotion.InterestRate === 0 &&
+                promotion.NumberOfInstallments !== 1) ||
+              promotion.PaymentSystemName === "Mercado Pago"
+          )
+          .map(
+            (promotion, i) =>
+              i < 5 && (
+                <tr key={promotion.PaymentSystemName + i}>
+                  <td>
+                    <img
+                      src={cardImages[promotion.PaymentSystemName]}
+                      alt={promotion.PaymentSystemName}
+                      className="card-image"
+                    />
+                    {promotion.NumberOfInstallments}{" "}
+                    {promotion.NumberOfInstallments > 1 ? "cuotas" : "cuota"}{" "}
+                    <span className="green-text">
+                      {promotion.InterestRate === 0 ? "sin interés" : "fijas"}{" "}
+                      de $ {promotion.Value}
+                    </span>
+                  </td>
+                </tr>
+              )
+          )}
         <tr>
           <td>
-            <PaymentMethod paymentSystems={data} />
+            <AllPaymentMethods paymentMethods={promotions} />
           </td>
         </tr>
       </tbody>

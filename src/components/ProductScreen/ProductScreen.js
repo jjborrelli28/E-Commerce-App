@@ -11,6 +11,7 @@ import { Promotions } from "./Promotions";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Description } from "./Description";
 
 export const ProductScreen = () => {
   const { productId } = useParams();
@@ -41,32 +42,32 @@ export const ProductScreen = () => {
       <hr />
       {data ? (
         <div className="container-product-screen mb-3">
-          <header className="mb-3">
+          <div className="card-product mb-3">
             <div className="carousel-container">
               <ImageCarousel images={data[0].items[0].images} />
             </div>
             <div className="main-data">
               <BrandNamePrice product={data} />
               <div>
-                <Promotions data={data} />
+                <Promotions promotions={data} />
                 <Button
                   variant="primary"
-                  className="btn-buy"
                   onClick={handleBuy}
+                  style={{ fontWeight: "bold", width: "100%" }}
                 >
-                  <strong>COMPRAR</strong>
+                  COMPRAR
                 </Button>
               </div>
             </div>
-          </header>
-          <TechnicalSpecifications data={data} />
-          <h5 className="mb-3">Descripción:</h5>
-          <div
-            className="description mb-3"
-            dangerouslySetInnerHTML={{ __html: data[0].description }}
-          ></div>
-          <Button variant="secondary" onClick={handleBack}>
-            <strong>VOLVER</strong>
+          </div>
+          <TechnicalSpecifications specifications={data} />
+          <Description data={data} />
+          <Button
+            variant="secondary"
+            onClick={handleBack}
+            style={{ fontWeight: "bold" }}
+          >
+            VOLVER
           </Button>
         </div>
       ) : (

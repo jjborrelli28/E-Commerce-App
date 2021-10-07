@@ -6,12 +6,12 @@ import { MdNavigateNext } from "react-icons/md";
 import Table from "react-bootstrap/Table";
 import { cardImages } from "../../helpers/cardImages";
 
-export const PaymentMethod = ({ paymentSystems }) => {
+export const AllPaymentMethods = ({ paymentMethods }) => {
   const [show, setShow] = useState(false);
 
   const installments =
-    paymentSystems[0].items[0].sellers[0].commertialOffer.Installments;
-  const price = paymentSystems[0].items[0].sellers[0].commertialOffer.Price;
+    paymentMethods[0].items[0].sellers[0].commertialOffer.Installments;
+  const price = paymentMethods[0].items[0].sellers[0].commertialOffer.Price;
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -33,7 +33,7 @@ export const PaymentMethod = ({ paymentSystems }) => {
             hover
             size="sm"
             responsive
-            className="table-payment-method"
+            className="table-all-payment-method"
           >
             <thead>
               <tr>
@@ -52,7 +52,7 @@ export const PaymentMethod = ({ paymentSystems }) => {
                       <img
                         src={cardImages[installment.PaymentSystemName]}
                         alt={installment.PaymentSystemName}
-                        className="paymentMethod"
+                        className="card-image"
                       />
                     }
                   </td>
