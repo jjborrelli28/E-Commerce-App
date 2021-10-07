@@ -1,21 +1,11 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
-import { Link } from "react-router-dom";
-import { paymentMethod } from "../../helpers/paymentMethod";
-import Swal from "sweetalert2";
+import { cardImages } from "../../helpers/cardImages";
+import { PaymentMethod } from "./PaymentMethod";
 
 export const Promotions = ({ data }) => {
-  const handleDemo = () => {
-    Swal.fire({
-      icon: "info",
-      title: "Link Demo",
-      showConfirmButton: false,
-      timer: 1500,
-    });
-  };
-
   return (
-    <Table striped bordered hover>
+    <Table striped bordered hover className="table-promotions">
       <tbody>
         {data[0].items[0].sellers[0].commertialOffer.Installments.filter(
           (promo) =>
@@ -27,7 +17,7 @@ export const Promotions = ({ data }) => {
               <tr key={data.PaymentSystemName + i}>
                 <td>
                   <img
-                    src={paymentMethod[data.PaymentSystemName]}
+                    src={cardImages[data.PaymentSystemName]}
                     alt={data.PaymentSystemName}
                     className="paymentMethod"
                   />
@@ -43,9 +33,7 @@ export const Promotions = ({ data }) => {
         )}
         <tr>
           <td>
-            <Link to="#" onClick={handleDemo} style={{ paddingLeft: "0.5rem" }}>
-              Ver cuotas y todos los medios de pago
-            </Link>
+            <PaymentMethod data={data} />
           </td>
         </tr>
       </tbody>

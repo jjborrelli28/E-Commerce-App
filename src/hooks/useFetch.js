@@ -8,18 +8,24 @@ export const useFetch = (url) => {
   });
 
   useEffect(() => {
-    setState({ data: null, loading: true, error: null });
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) =>
+    const fetchData = async () => {
+      setState({ data: null, loading: true, error: null });
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const resources = response.headers.get("resources");
         setState({
           data,
+          resources,
           loading: null,
           error: null,
-        })
-      )
-      .catch((error) => setState({ data: null, loading: null, error }));
+        });
+      } catch (error) {
+        setState({ data: null, loading: null, error });
+      }
+    };
+
+    fetchData();
   }, [url]);
 
   return state;

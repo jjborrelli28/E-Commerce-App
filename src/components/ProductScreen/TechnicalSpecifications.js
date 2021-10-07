@@ -12,29 +12,27 @@ export const TechnicalSpecifications = ({ data }) => {
             {data[0].allSpecificationsGroups.map(
               (specification) =>
                 specification !== "Filtros" && (
-                  <>
-                    <Accordion.Item eventKey={specification}>
-                      <Accordion.Header>{specification}</Accordion.Header>
-                      <Accordion.Body>
-                        <Table striped bordered hover size="sm" responsive="md">
-                          <tbody>
-                            <tr>
-                              <td>
-                                {data[0][specification].map((item, i) => (
-                                  <p key={item + i}>{item}</p>
-                                ))}
-                              </td>
-                              <td>
-                                {data[0][specification].map((item, i) => (
-                                  <p key={item + i}>{data[0][item]}</p>
-                                ))}
-                              </td>
-                            </tr>
-                          </tbody>
-                        </Table>
-                      </Accordion.Body>
-                    </Accordion.Item>
-                  </>
+                  <Accordion.Item key={specification} eventKey={specification}>
+                    <Accordion.Header>{specification}</Accordion.Header>
+                    <Accordion.Body>
+                      <Table striped bordered hover size="sm" responsive>
+                        <tbody>
+                          <tr>
+                            <td>
+                              {data[0][specification].map((item, i) => (
+                                <p key={item + i}>{item}</p>
+                              ))}
+                            </td>
+                            <td>
+                              {data[0][specification].map((item, i) => (
+                                <p key={item + i}>{data[0][item]}</p>
+                              ))}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </Table>
+                    </Accordion.Body>
+                  </Accordion.Item>
                 )
             )}
           </Accordion>

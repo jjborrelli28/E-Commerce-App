@@ -29,6 +29,7 @@ export const ProductScreen = () => {
     Swal.fire({
       icon: "success",
       title: "Tu producto se agrego al carrito correctamente",
+      text: "(DEMO)",
       showConfirmButton: false,
       timer: 1500,
     });
@@ -37,6 +38,7 @@ export const ProductScreen = () => {
   return (
     <Container>
       <InputSearch />
+      <hr />
       {data ? (
         <div className="container-product-screen mb-3">
           <header className="mb-3">

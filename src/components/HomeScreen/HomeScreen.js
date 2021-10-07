@@ -12,9 +12,10 @@ export const HomeScreen = () => {
 
   const url = `/api/catalog_system/pub/products/search/?ft=${value}&_from=0&_to=49`;
 
-  const { data } = useFetch(url);
+  const { data, resources } = useFetch(url);
 
   console.log(data);
+  console.log(resources);
 
   return (
     <Container>
