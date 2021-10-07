@@ -8,7 +8,7 @@ import { BsSearch } from "react-icons/bs";
 import { useSearch } from "../../hooks/useSearch";
 
 export const InputSearch = () => {
-  const { value, handleInputChange, handleInputSearch, reset } = useSearch();
+  const { value, handleInputChange, handleInputSearch } = useSearch();
 
   return (
     <Row xs={1} md={2} className="g-4 justify-content-md-center">
