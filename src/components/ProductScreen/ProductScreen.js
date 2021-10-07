@@ -6,19 +6,24 @@ import { ImageCarousel } from "./ImageCarousel";
 import Spinner from "react-bootstrap/Spinner";
 import { BrandNamePrice } from "./BrandNamePrice";
 import { TechnicalSpecifications } from "./TechnicalSpecifications";
-import { InputSearch } from "../Shared/InputSearch";
+import { InputSearch } from "../shared/InputSearch";
 import { Promotions } from "./Promotions";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Description } from "./Description";
+import { GridProducts } from "../shared/GridProducts";
 
 export const ProductScreen = () => {
   const { productId } = useParams();
 
   const url = `/api/catalog_system/pub/products/search/?fq=productId:${productId}`;
 
+  const urlCrossSelling = `/api/catalog_system/pub/products/crossselling/whosawalsosaw/${productId}`;
+
   const { data } = useFetch(url);
+
+  const { data: dataCrossSelling } = useFetch(urlCrossSelling);
 
   const history = useHistory();
 
@@ -62,10 +67,17 @@ export const ProductScreen = () => {
           </div>
           <TechnicalSpecifications specifications={data} />
           <Description data={data} />
+          <h5 className="mt-3 mb-3">
+            Personas interesadas en este producto también vieron:
+          </h5>
+          {dataCrossSelling && (
+            <GridProducts products={dataCrossSelling.slice(0, 4)} n={4} />
+          )}
           <Button
             variant="secondary"
             onClick={handleBack}
             style={{ fontWeight: "bold" }}
+            className="mt-3"
           >
             VOLVER
           </Button>

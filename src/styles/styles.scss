@@ -1,7 +1,6 @@
-@import "./components/general";
 @import "./components/HomeScreen/HomeScreen";
-@import "./components/HomeScreen/InputSearch";
-@import "./components/HomeScreen/GridProducts";
+@import "./components/shared/InputSearch";
+@import "./components/shared/GridProducts";
 @import "./components/ProductScreen/ProductScreen";
 @import "./components/ProductScreen/ImageCarousel";
 @import "./components/ProductScreen/Promotions";

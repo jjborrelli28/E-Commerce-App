@@ -26,6 +26,12 @@ export const useSearch = () => {
     dispatch(action);
 
     if (history.location.pathname !== "/") {
+      const action = {
+        type: types.MAS_RELEVANTE,
+        payload: "Más relevante",
+      };
+      dispatch(action);
+
       history.push("/");
     }
   };

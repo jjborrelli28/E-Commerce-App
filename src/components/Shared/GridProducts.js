@@ -6,7 +6,7 @@ import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
 import { types } from "../../types/types";
 
-export const GridProducts = ({ products }) => {
+export const GridProducts = ({ products, n }) => {
   let history = useHistory();
 
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ export const GridProducts = ({ products }) => {
   };
 
   return (
-    <Row xs={1} md={5} className="g-4">
+    <Row xs={1} md={n} className="g-4 mb-3">
       {products.map((product) => {
         const firstItem = product.items[0];
         const commertialOffer = firstItem.sellers[0].commertialOffer;

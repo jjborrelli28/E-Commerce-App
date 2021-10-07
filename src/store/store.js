@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { orderByReducer } from "../reducers/orderByReducer";
 import { searchReducer } from "../reducers/searchReducer";
 
 export const store = configureStore({
-  reducer: { search: searchReducer },
+  reducer: { search: searchReducer, orderBy: orderByReducer },
 });
