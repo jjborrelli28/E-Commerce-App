@@ -1,6 +1,6 @@
 import React from "react";
 import { AppRouter } from "./routers/RouterApp";
 
-export const TOBSApp = () => {
+export const ECommerceApp = () => {
   return <AppRouter />;
 };

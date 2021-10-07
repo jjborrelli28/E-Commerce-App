@@ -4,11 +4,11 @@ import { store } from "./store/store";
 import { Provider } from "react-redux";
 import "./styles/styles.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { TOBSApp } from "./TOBSApp";
+import { ECommerceApp } from "./ECommerceApp";
 
 ReactDOM.render(
   <Provider store={store}>
-    <TOBSApp />
+    <ECommerceApp />
   </Provider>,
   document.getElementById("root")
 );
