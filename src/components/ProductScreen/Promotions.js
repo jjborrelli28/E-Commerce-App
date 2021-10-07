@@ -33,7 +33,7 @@ export const Promotions = ({ data }) => {
         )}
         <tr>
           <td>
-            <PaymentMethod data={data} />
+            <PaymentMethod paymentSystems={data} />
           </td>
         </tr>
       </tbody>

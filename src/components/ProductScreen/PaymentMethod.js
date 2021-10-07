@@ -6,13 +6,16 @@ import { MdNavigateNext } from "react-icons/md";
 import Table from "react-bootstrap/Table";
 import { cardImages } from "../../helpers/cardImages";
 
-export const PaymentMethod = ({ data }) => {
+export const PaymentMethod = ({ paymentSystems }) => {
   const [show, setShow] = useState(false);
+
+  const installments =
+    paymentSystems[0].items[0].sellers[0].commertialOffer.Installments;
+  const price = paymentSystems[0].items[0].sellers[0].commertialOffer.Price;
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log(data[0].items[0].sellers[0].commertialOffer.Installments);
   return (
     <>
       <Link to="#" onClick={handleShow} style={{ paddingLeft: "0.5rem" }}>
@@ -42,31 +45,28 @@ export const PaymentMethod = ({ data }) => {
               </tr>
             </thead>
             <tbody>
-              {data[0].items[0].sellers[0].commertialOffer.Installments.map(
-                (promo, i) => (
-                  <tr key={i}>
-                    <td>
-                      {
-                        <img
-                          src={cardImages[promo.PaymentSystemName]}
-                          alt={promo.PaymentSystemName}
-                          className="paymentMethod"
-                        />
-                      }
-                    </td>
-                    <td>{promo.NumberOfInstallments}</td>
-                    <td>${promo.Value}</td>
-                    <td>${promo.TotalValuePlusInterestRate}</td>
-                    <td>
-                      $
-                      {(
-                        promo.TotalValuePlusInterestRate -
-                        data[0].items[0].sellers[0].commertialOffer.Price
-                      ).toFixed(2)}
-                    </td>
-                  </tr>
-                )
-              )}
+              {installments.map((installment, i) => (
+                <tr key={i}>
+                  <td>
+                    {
+                      <img
+                        src={cardImages[installment.PaymentSystemName]}
+                        alt={installment.PaymentSystemName}
+                        className="paymentMethod"
+                      />
+                    }
+                  </td>
+                  <td>{installment.NumberOfInstallments}</td>
+                  <td>${installment.Value}</td>
+                  <td>${installment.TotalValuePlusInterestRate}</td>
+                  <td>
+                    $
+                    {(installment.TotalValuePlusInterestRate - price).toFixed(
+                      2
+                    )}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </Table>
         </Modal.Body>

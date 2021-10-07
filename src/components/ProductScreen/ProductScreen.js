@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { useFetch } from "../../hooks/useFetch";
 import { ImageCarousel } from "./ImageCarousel";
 import Spinner from "react-bootstrap/Spinner";
-import { NameNPrice } from "./NameNPrice";
+import { BrandNamePrice } from "./BrandNamePrice";
 import { TechnicalSpecifications } from "./TechnicalSpecifications";
 import { InputSearch } from "../HomeScreen/InputSearch";
 import { Promotions } from "./Promotions";
@@ -46,9 +46,7 @@ export const ProductScreen = () => {
               <ImageCarousel images={data[0].items[0].images} />
             </div>
             <div className="main-data">
-              <div>
-                <NameNPrice product={data} />
-              </div>
+              <BrandNamePrice product={data} />
               <div>
                 <Promotions data={data} />
                 <Button

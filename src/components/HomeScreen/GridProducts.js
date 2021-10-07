@@ -33,7 +33,12 @@ export const GridProducts = ({ products }) => {
                       $ {commertialOffer.ListPrice}
                     </span>
                     <span className="discount-percentage">
-                      {100 - Math.ceil(commertialOffer.ListPrice * 100)}% OFF
+                      {100 -
+                        Math.ceil(
+                          (commertialOffer.Price / commertialOffer.ListPrice) *
+                            100
+                        )}
+                      % OFF
                     </span>
                   </Card.Text>
                 )}
