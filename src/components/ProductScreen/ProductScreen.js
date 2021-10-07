@@ -47,7 +47,7 @@ export const ProductScreen = () => {
             </div>
             <div className="main-data">
               <div>
-                <NameNPrice data={data} />
+                <NameNPrice product={data} />
               </div>
               <div>
                 <Promotions data={data} />

@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container";
 import { InputSearch } from "./InputSearch";
 import { GridProducts } from "./GridProducts";
 import { useSelector } from "react-redux";
-import { CategoryBar } from "./CategoryBar";
 import Spinner from "react-bootstrap/Spinner";
 
 export const HomeScreen = () => {
@@ -20,9 +19,9 @@ export const HomeScreen = () => {
   return (
     <Container>
       <InputSearch />
-      <CategoryBar />
+      <hr />
       {data ? (
-        <GridProducts data={data} />
+        <GridProducts products={data} />
       ) : (
         <div className="spinner-container">
           <Spinner animation="grow" variant="primary" />
