@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import { types } from "../types/types";
 
 export const useSearch = () => {
+  const { valueSearch } = useSelector((state) => state.search);
+
   const dispatch = useDispatch();
 
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(valueSearch);
+
+  const history = useHistory();
 
   const handleInputChange = (e) => {
     setValue(e.target.value);
@@ -19,6 +24,10 @@ export const useSearch = () => {
       payload: value.toLocaleLowerCase(),
     };
     dispatch(action);
+
+    if (history.location.pathname !== "/") {
+      history.push("/");
+    }
   };
 
   const reset = () => {

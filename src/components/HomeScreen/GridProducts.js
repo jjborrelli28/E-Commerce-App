@@ -3,11 +3,21 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
+import { types } from "../../types/types";
 
 export const GridProducts = ({ products }) => {
   let history = useHistory();
 
+  const dispatch = useDispatch();
+
   const handleSelectProduct = (productId) => {
+    const action = {
+      type: types.SEARCH,
+      payload: "",
+    };
+    dispatch(action);
+
     history.push(`/${productId}`);
   };
 

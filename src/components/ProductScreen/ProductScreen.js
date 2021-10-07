@@ -6,7 +6,7 @@ import { ImageCarousel } from "./ImageCarousel";
 import Spinner from "react-bootstrap/Spinner";
 import { BrandNamePrice } from "./BrandNamePrice";
 import { TechnicalSpecifications } from "./TechnicalSpecifications";
-import { InputSearch } from "../HomeScreen/InputSearch";
+import { InputSearch } from "../Shared/InputSearch";
 import { Promotions } from "./Promotions";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
