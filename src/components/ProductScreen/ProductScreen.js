@@ -6,13 +6,13 @@ import { ImageCarousel } from "./ImageCarousel";
 import Spinner from "react-bootstrap/Spinner";
 import { BrandNamePrice } from "./BrandNamePrice";
 import { TechnicalSpecifications } from "./TechnicalSpecifications";
-import { InputSearch } from "../shared/InputSearch";
+import { InputSearch } from "../Shared/InputSearch";
 import { Promotions } from "./Promotions";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Description } from "./Description";
-import { GridProducts } from "../shared/GridProducts";
+import { GridProducts } from "../Shared/GridProducts";
 
 export const ProductScreen = () => {
   const { productId } = useParams();

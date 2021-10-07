@@ -1,8 +1,8 @@
 import React from "react";
 import { useFetch } from "../../hooks/useFetch";
 import Container from "react-bootstrap/Container";
-import { InputSearch } from "../shared/InputSearch";
-import { GridProducts } from "../shared/GridProducts";
+import { InputSearch } from "../Shared/InputSearch";
+import { GridProducts } from "../Shared/GridProducts";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "react-bootstrap/Spinner";
 import DropdownButton from "react-bootstrap/DropdownButton";
