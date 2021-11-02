@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Spinner from "react-bootstrap/Spinner";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
+import Row from "react-bootstrap/Row";
 import { orders } from "../../helpers/orders";
 
 import Alert from "react-bootstrap/Alert";
@@ -49,25 +50,29 @@ export const HomeScreen = () => {
 
   return (
     <Container>
-      <InputSearch />
-      <hr />
-
-      <DropdownButton
-        title={`Ordenar por: ${nameOrderBy}`}
-        id="dropdown-menu"
-        className="mb-3"
-      >
-        {orders.map((order) => (
-          <Dropdown.Item
-            key={order}
-            onClick={handleOrderBySelect}
-            active={order === nameOrderBy && true}
-          >
-            {order}
-          </Dropdown.Item>
-        ))}
-      </DropdownButton>
-
+      <header className="mt-4 mb-4">
+        <h1 className="mb-4">E-Commerce App</h1>
+        <hr />
+        <InputSearch />
+      </header>
+      <Row>
+        <DropdownButton
+          align="end"
+          title={`Ordenar por: ${nameOrderBy}`}
+          id="dropdown-menu-align-end"
+          className="mb-3 d-flex justify-content-end"
+        >
+          {orders.map((order) => (
+            <Dropdown.Item
+              key={order}
+              onClick={handleOrderBySelect}
+              active={order === nameOrderBy && true}
+            >
+              {order}
+            </Dropdown.Item>
+          ))}
+        </DropdownButton>
+      </Row>
       {data ? (
         data.length !== 0 ? (
           <>

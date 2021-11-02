@@ -12,11 +12,11 @@ export const InputSearch = () => {
   const { value, handleInputChange, handleInputSearch } = useSearch();
 
   return (
-    <Row xs={1} md={2} className="g-4 justify-content-md-center">
+    <Row xs={1} md={2} className="justify-content-md-center">
       <Col lg={3}></Col>
       <Col lg={6}>
         <Form className="form-container" onSubmit={handleInputSearch}>
-          <InputGroup className="mt-5">
+          <InputGroup>
             <FormControl
               placeholder="Buscar productos"
               aria-label="Buscar productos"
@@ -33,7 +33,7 @@ export const InputSearch = () => {
             </Button>
           </InputGroup>
         </Form>
-      </Col >
+      </Col>
       <Col lg={3}></Col>
     </Row>
   );

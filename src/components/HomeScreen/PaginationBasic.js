@@ -76,22 +76,10 @@ export const PaginationBasic = ({ pages }) => {
     <Pagination className="d-flex justify-content-center">
       <Pagination.First disabled={page === 1} onClick={handleFirst} />
       <Pagination.Prev disabled={page === 1} onClick={handlePrevious} />
-      <Pagination.Item active={page === 1} onClick={handlePageSelect}>
-        {page === 1 ? page : 1}
+      <Pagination.Item active onClick={handlePageSelect}>
+        {page}
       </Pagination.Item>
-      <Pagination.Ellipsis disabled={page === 1} />
-
-      <Pagination.Item
-        active={page !== 1 && page !== pages && true}
-        onClick={handlePageSelect}
-      >
-        {page === 1 ? 2 : page === pages ? pages - 1 : page}
-      </Pagination.Item>
-
-      <Pagination.Ellipsis disabled={page === pages} />
-      <Pagination.Item active={page === pages} onClick={handlePageSelect}>
-        {page === pages ? page : pages}
-      </Pagination.Item>
+      <Pagination.Item disabled>de {pages}</Pagination.Item>
       <Pagination.Next disabled={page === pages} onClick={handleNext} />
       <Pagination.Last disabled={page === pages} onClick={handleLast} />
     </Pagination>
